@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Assignment6.Data.Entity_Models.Employee1>
+
+@{
+    ViewBag.Title = "Employee Portal";
+}
+<style>
+    .s1 {
+        margin-left: 425px;
+    }
+
+    .head {
+        text-align: center;
+    }
+    .p{
+        text-align: right;
+    }
+</style>
+
+<h2 class="head">Employee Portal</h2>
+
+<p class="s1">
+    @Html.ActionLink("Add Employee", "Create", null, new { @class = "btn btn-primary btn-large" })
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Action)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EId }, new { @class = "btn btn-warning btn-large" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EId }, new { @class = "btn btn-danger btn-large" })
+            </td>
+        </tr>
+    }
+
+</table>
+
